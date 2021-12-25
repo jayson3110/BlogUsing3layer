@@ -1,0 +1,104 @@
+﻿@model IEnumerable<BusinessObject.blogBO>
+
+@{
+    ViewBag.Title = "Blog";
+}
+
+<h2>Blog</h2>
+
+<form id="saveProductForm" method="POST">
+    <h3>Create  a  Blog</h3>
+    <p>
+        <label for="blogId">Blog Id:</label>
+        <input type="text" name="Id" id="id2" />
+    </p>
+    <p>
+        <label for="blogName">Blog Name:</label>
+        <input type="text" name="Name" id="name2" />
+    </p>
+    <p>
+        <label for="blogCategories">Categories:</label>
+        <input type="text" name="Name" id="categories" />
+    </p>
+    <p>
+        <label for="blogDescription">Description:</label>
+        <input type="text" name="Name" id="description" />
+    </p>
+    <input type="button" id="saveBLogCreate" value="Save" />
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.blog_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.blog_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.blog_categories_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.blog_Decription)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="item">
+            <td>
+                @Html.DisplayFor(modelItem => item.blog_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blog_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blog_categories_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.blog_Decription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.blog_id }) |
+                @Html.ActionLink("Delete", "DeleteBlog", new { id = item.blog_id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script type="text/javascript">
+        $('#saveBLogCreate').click(function () {
+            var id = document.getElementById("id2").value;
+            var name = document.getElementById("name2").value;
+            var categories = document.getElementById("categories").value;
+            var decription = document.getElementById("description").value;
+            var Data = {
+                blog_id: id,
+                blog_Title: name,
+                blog_categories_name: categories,
+                blog_Decription: decription,    
+
+            };
+
+            console.log(Data);
+            $.ajax({
+                url: '/api/blog',
+                type: 'POST',
+                data: JSON.stringify(Data),
+                contentType: "application/json",
+                success: function (response) {
+                    //...
+
+
+                    console.log(response);
+                   
+                }, error: function () {
+                    alert("Error occured!!")
+                }
+            });
+        })
+    </script>
+}

@@ -1,0 +1,105 @@
+﻿@model BusinessObject.blogBO
+
+@{
+        ViewBag.Title = "Edit";
+
+
+        AjaxOptions ajaxOptions = new AjaxOptions
+        {
+            HttpMethod = "PUT",
+            InsertionMode = InsertionMode.Replace,
+            OnBegin = "OnBeginRequest",
+
+    };
+
+
+
+
+}
+
+<h2>Edit</h2>
+
+
+
+<form id="updateProductForm" method="PUT">
+    <div class="form-horizontal">
+        <h4>blogBO</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.blog_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.blog_id, new { htmlAttributes = new { @class = "form-control"} , @id = "blog_id" })
+                @Html.ValidationMessageFor(model => model.blog_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.blog_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.blog_Title, new { htmlAttributes = new { @class = "form-control" , @id="blog_title"} })
+                @Html.ValidationMessageFor(model => model.blog_Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.blog_categories_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.blog_categories_name, new { htmlAttributes = new { @class = "form-control", @id= "blog_categories_name" } })
+                @Html.ValidationMessageFor(model => model.blog_categories_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.blog_Decription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.blog_Decription, new { htmlAttributes = new { @class = "form-control" , @id= "blog_Decription" } })
+                @Html.ValidationMessageFor(model => model.blog_Decription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" id="saveBlogUpdate" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Blog")
+    </div>
+
+    @section Scripts {
+
+        <script type="text/javascript">
+            $('#saveBlogUpdate').click(function () {
+                var id = document.getElementById("blog_id").value;
+                var title = document.getElementById("blog_title").value;
+                var categories = document.getElementById("blog_categories_name").value;
+                var description = document.getElementById("blog_Decription").value;
+
+                var Data = {
+                    blog_id: id,
+                    blog_title: title,
+                    blog_categories_name: categories,
+                    blog_Decription: description
+                };
+
+                console.log(Data);
+                $.ajax({
+                    url: '/api/blog',
+                    type: 'PUT',
+                    data: JSON.stringify(Data),
+                    contentType: "application/json",
+                    success: function (response) {
+                        //...
+                        alert(response)
+                    }, error: function () {
+                        alert("Error occured!!")
+                    }
+                });
+            })
+        </script>
+    }

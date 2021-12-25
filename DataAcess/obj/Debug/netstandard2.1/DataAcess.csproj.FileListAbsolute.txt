@@ -1,0 +1,13 @@
+D:\ASP.NET MVC\BlogApplication\DataAcess\bin\Debug\netstandard2.1\DataAcess.deps.json
+D:\ASP.NET MVC\BlogApplication\DataAcess\bin\Debug\netstandard2.1\DataAcess.dll
+D:\ASP.NET MVC\BlogApplication\DataAcess\bin\Debug\netstandard2.1\DataAcess.pdb
+D:\ASP.NET MVC\BlogApplication\DataAcess\bin\Debug\netstandard2.1\BusinessObject.dll
+D:\ASP.NET MVC\BlogApplication\DataAcess\bin\Debug\netstandard2.1\BusinessObject.pdb
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.csproj.AssemblyReference.cache
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.AssemblyInfoInputs.cache
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.AssemblyInfo.cs
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.csproj.CoreCompileInputs.cache
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.csproj.CopyComplete
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.dll
+D:\ASP.NET MVC\BlogApplication\DataAcess\obj\Debug\netstandard2.1\DataAcess.pdb
